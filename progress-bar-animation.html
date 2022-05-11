@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>progress bar animation</title>
+    <style>
+        .progress {
+            height: 30px;
+            border-radius: 5px;
+            margin: 50% auto;
+            border: 4px solid #DFBC5E;
+            background-color: #a06b37;
+        }
+
+        .progress {
+            max-width: 380px;
+        }
+
+        .progress>div {
+            float: left;
+            margin-bottom: 8px;
+            width: 100%;
+        }
+
+        .progress .progress-bar {
+            border-radius: 1px;
+            background: rgb(255, 238, 176);
+            background: linear-gradient(90deg, rgba(255, 238, 176, 1) 0%, rgba(243, 195, 62, 1) 32%, rgba(223, 112, 26, 1) 100%);
+            height: 100%;
+            float: left;
+            overflow: hidden;
+            position: relative;
+            width: 0;
+        }
+
+        .progress-bar-animation {
+            -webkit-animation: show-bar 1.2s 0.4s forwards;
+            -moz-animation: show-bar 1.2s 0.4s forwards;
+            animation: show-bar 1.2s 0.4s forwards;
+        }
+
+        @-webkit-keyframes show-bar {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 90%;
+            }
+        }
+
+        h1{
+            padding-top: 100px;
+            text-align: center;
+        }
+        .space{
+            display: block;
+            height: 50%;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Scroll Down</h1>
+<p class="space"></p>
+    <div class="progress">
+        <div class="progress-bar"></div>
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                const progressBar = entry.target.querySelector(".progress-bar");
+
+                if (entry.isIntersecting) {
+                    progressBar.classList.add("progress-bar-animation");
+                    return;
+                }
+
+                progressBar.classList.remove("progress-bar-animation");
+            });
+        });
+
+        observer.observe(document.querySelector(".progress"));
+    </script>
+</body>
+
+</html>
