@@ -1,0 +1,54 @@
+.progress {
+  height: 30px;
+  border-radius: 5px;
+  margin: 50% auto;
+  border: 4px solid #DFBC5E;
+  background-color: #a06b37;
+}
+
+.progress {
+  max-width: 380px;
+}
+
+.progress>div {
+  float: left;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.progress .progress-bar {
+  border-radius: 1px;
+  background: rgb(255, 238, 176);
+  background: linear-gradient(90deg, rgba(255, 238, 176, 1) 0%, rgba(243, 195, 62, 1) 32%, rgba(223, 112, 26, 1) 100%);
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  width: 0;
+}
+
+.progress-bar-animation {
+  -webkit-animation: show-bar 1.2s 0.4s forwards;
+  -moz-animation: show-bar 1.2s 0.4s forwards;
+  animation: show-bar 1.2s 0.4s forwards;
+}
+
+@-webkit-keyframes show-bar {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 90%;
+  }
+}
+
+h1 {
+  padding-top: 100px;
+  text-align: center;
+}
+
+.space {
+  display: block;
+  height: 1024px;
+}

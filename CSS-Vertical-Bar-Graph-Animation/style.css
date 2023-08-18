@@ -1,0 +1,171 @@
+html{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size:14px;
+}
+
+.bar-graph .bar-name {
+  -webkit-animation: fade-in-text 2.2s 0.1s forwards;
+  -moz-animation: fade-in-text 2.2s 0.1s forwards;
+  animation: fade-in-text 2.2s 0.1s forwards;
+}
+
+.bar-graph-vertical {
+  margin-top: 80px;
+  max-width: 680px;
+}
+
+.bar-graph-vertical .bar-container {
+  float: left;
+  height: 150px;
+  margin-right: 8px;
+  position: relative;
+  text-align: center;
+  width: 28px;
+}
+
+.bar-graph-vertical .bar {
+  border-radius: 3px;
+  bottom: 40px;
+  position: absolute;
+  width: 34px;
+  font-size:8px;
+}
+
+.bar-graph-vertical .bar-name {
+  bottom: 0;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.bar-graph-items .bar::after {
+  -webkit-animation: fade-in-text 2.2s 0.1s forwards;
+  -moz-animation: fade-in-text 2.2s 0.1s forwards;
+  animation: fade-in-text 2.2s 0.1s forwards;
+  color: #121212;
+  content: attr(data-percentage);
+  font-weight: 700;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  text-align: left;
+  top: 24px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.bar-graph-items .bar-1 .bar {
+  background-color: #F9E400;
+  -webkit-animation: show-bar-1-vertical 1.2s 0.1s forwards;
+  -moz-animation: show-bar-1-vertical 1.2s 0.1s forwards;
+  animation: show-bar-1-vertical 1.2s 0.1s forwards;
+}
+
+.bar-graph-items .bar-2 .bar {
+  background-color: #76cc75;
+  -webkit-animation: show-bar-2-vertical 1.2s 0.2s forwards;
+  -moz-animation: show-bar-2-vertical 1.2s 0.2s forwards;
+  animation: show-bar-2-vertical 1.2s 0.2s forwards;
+}
+
+.bar-graph-items .bar-3 .bar {
+  background-color: #76cc75;
+  -webkit-animation: show-bar-3-vertical 1.2s 0.3s forwards;
+  -moz-animation: show-bar-3-vertical 1.2s 0.3s forwards;
+  animation: show-bar-3-vertical 1.2s 0.3s forwards;
+}
+
+.bar-graph-items .bar-4 .bar {
+  background-color: #F9E400;
+  -webkit-animation: show-bar-4-vertical 1.2s 0.4s forwards;
+  -moz-animation: show-bar-4-vertical 1.2s 0.4s forwards;
+  animation: show-bar-4-vertical 1.2s 0.4s forwards;
+}
+
+.bar-graph-items .bar-5 .bar {
+  background-color: #F9E400;
+  -webkit-animation:show-bar-5-vertical 1.2s 0.4s forwards;
+  -moz-animation:show-bar-5-vertical 1.2s 0.4s forwards;
+  animation:show-bar-5-vertical 1.2s 0.4s forwards;
+}
+
+.bar-graph-items .bar-6 .bar {
+  background-color: #da6666;
+  -webkit-animation:show-bar-6-vertical 1.2s 0.4s forwards;
+  -moz-animation:show-bar-6-vertical 1.2s 0.4s forwards;
+  animation:show-bar-6-vertical 1.2s 0.4s forwards;
+}
+
+/* Bar Graph Vertical Animations */
+@-webkit-keyframes show-bar-1-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 40%;
+  }
+}
+
+@-webkit-keyframes show-bar-2-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+@-webkit-keyframes show-bar-3-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 80%;
+  }
+}
+
+@-webkit-keyframes show-bar-4-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 50%;
+  }
+}
+
+@-webkit-keyframes show-bar-5-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 35%;
+  }
+}
+
+@-webkit-keyframes show-bar-6-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 25%;
+  }
+}
+
+@-webkit-keyframes fade-in-text {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
