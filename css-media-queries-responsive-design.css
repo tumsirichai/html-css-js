@@ -1,0 +1,44 @@
+// ------------------------------------------------
+// main css here 
+// ------------------------------------------------
+.html{
+
+}
+
+
+
+// ------------------------------------------------
+/**************************************************/
+// CSS Media Queries in Responsive Design
+/**************************************************/
+// ------------------------------------------------
+
+/* --- iPad Pro (portrait)*/
+@media only screen and (max-width: 1024px) {
+    /*  */
+}
+
+/* --- iPad Mini (portrait)*/
+@media only screen and (max-width: 820px) {
+    /*  */
+}
+
+/* --- iPads (portrait)*/
+@media only screen and (max-width: 768px) {
+    /*  */
+}
+
+/* --- Smartphones big (portrait)*/
+@media only screen and (max-width: 480px) {
+    /*  */
+}
+
+/* --- Smartphones medium (portrait)*/
+@media only screen and (max-width: 375px) {
+   /*  */
+}
+
+/* --- Smartphones small (portrait)*/
+@media only screen and (max-width:320px){
+    /*  */
+}
