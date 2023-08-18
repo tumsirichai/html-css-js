@@ -1,1 +1,1 @@
-Demo : https://css-5-star-rating--tumsirichai.repl.co/
+demo : https://css-5-star-rating--tumsirichai.repl.co/
