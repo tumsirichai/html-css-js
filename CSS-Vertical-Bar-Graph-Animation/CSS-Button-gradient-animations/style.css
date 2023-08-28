@@ -1,0 +1,61 @@
+.btn-animation-1 {
+  color: #ffffff;
+  font-size: 28px;
+  padding: 10px 20px;
+  border: solid 2px #7953cd;
+  border-radius: 15px;
+  background: linear-gradient(
+    to right,
+    #7953cd 20%,
+    #00affa 30%,
+    #0190cd 70%,
+    #764ada 80%
+  );
+  background-size: 500% auto;
+  animation: animatedGradient 3s ease-in-out infinite;
+  animation-play-state: running;
+}
+
+.btn-animation-1:hover {
+  animation-play-state: paused;
+}
+
+@keyframes animatedGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.btn-animation-2 {
+  color: #ffffff;
+  font-size: 28px;
+  padding: 10px 20px;
+  border: solid 2px #7953cd;
+  border-radius: 15px;
+  background: linear-gradient(
+    to right,
+    #7953cd 20%,
+    #00affa 30%,
+    #0190cd 70%,
+    #764ada 80%
+  );
+  background-size: 500% auto;
+  animation-play-state:re
+}
+
+.btn-animation-2:hover {
+  animation: animatedGradient 3s ease-in-out infinite;
+  animation-play-state: running;
+}
+
+@keyframes animatedGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
