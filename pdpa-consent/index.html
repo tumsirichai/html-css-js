@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDPA Demo</title>
+    <style>
+        .pdpa-popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            border-radius: 5px;
+        }
+
+        .pdpa-content button {
+            margin: 10px 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+    <div id="pdpa-popup" class="pdpa-popup" style="display: none;">
+        <div class="pdpa-content">
+            <h3>นโยบายการคุ้มครองข้อมูลส่วนบุคคล (PDPA)</h3>
+            <p>เว็บไซต์ของเราใช้คุกกี้และเทคโนโลยีการติดตามเพื่อปรับปรุงประสบการณ์การใช้งานของคุณ</p>
+            <button onclick="acceptPDPA()">ยอมรับ</button>
+            <button onclick="declinePDPA()">ปฏิเสธ</button>
+        </div>
+    </div>
+
+    <script>
+        // Cookie functions
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/;SameSite=Lax";
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length);
+            }
+            return null;
+        }
+
+        function deleteCookie(name) {
+            document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        }
+
+        // Check consent status
+        function hasConsented() {
+            return getCookie('pdpa_consent') === 'true';
+        }
+
+        // Show popup if no consent decision exists
+        function showPDPAPopup() {
+            if (getCookie('pdpa_consent') === null) {
+                document.getElementById('pdpa-popup').style.display = 'block';
+            }
+        }
+
+        // User clicks "Accept"
+        function acceptPDPA() {
+            setCookie('pdpa_consent', 'true', 365); // Store consent for 1 year
+            document.getElementById('pdpa-popup').style.display = 'none';
+            loadTrackingScripts();
+            console.log('User accepted tracking cookies.');
+        }
+
+        // User clicks "Decline"
+        function declinePDPA() {
+            setCookie('pdpa_consent', 'false', 30); // Store refusal for 30 days
+            document.getElementById('pdpa-popup').style.display = 'none';
+            // Optional: Remove existing tracking cookies
+            deleteTrackingCookies();
+            console.log('User declined tracking cookies.');
+        }
+
+        // Load tracking scripts only after consent
+        function loadTrackingScripts() {
+            // Google Tag Manager
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-XXXXXX');
+
+            // Google Analytics
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'GA_MEASUREMENT_ID');
+        }
+
+        // Optional: Remove tracking cookies when user declines
+        function deleteTrackingCookies() {
+            // Example: Remove Google Analytics cookies
+            const domain = window.location.hostname;
+            const cookies = [
+                '_ga',
+                '_gat',
+                '_gid',
+                '_gat_gtag_UA_XXXXXX'
+            ];
+
+            cookies.forEach(cookie => {
+                document.cookie = `${cookie}=; path=/; domain=${domain}; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+            });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            if (hasConsented()) {
+                loadTrackingScripts();
+            } else {
+                showPDPAPopup();
+            }
+        });
+    </script>
+
+</body>
+
+</html>
